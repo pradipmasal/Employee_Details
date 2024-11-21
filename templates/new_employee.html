@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% block title %}New_Employee {% endblock title%}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="card shadow-sm">
+              <div class="card-header bg-primary text-white">
+                  <h4 class="card-title mb-0">New Employee Information</h4>
+              </div>
+              <div class="card-body">
+                  <form action="{% url 'new_employee' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                      <div class="mb-3">
+                          <label for="firstname" class="form-label">First Name</label>
+                          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter first name" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="lastname" class="form-label">Last Name</label>
+                          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter last name" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="phonenumber" class="form-label">Phone Number</label>
+                          <input type="tel" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter phone number" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="designation" class="form-label">Designation</label>
+                          <input type="text" class="form-control" id="designation" name="designation" placeholder="Enter designation" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="aboutme" class="form-label">About Me</label>
+                          <textarea class="form-control" id="aboutme" name="aboutme" rows="4" placeholder="Enter employee description"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="photo" class="form-label">Upload Photo</label>
+                        <input type="file" class="form-control" id="photo" name="photo" accept="images/*" placeholder="insert your photo" required>
+                    </div>
+                      <button type="submit" class="btn btn-primary w-100">Submit</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock content %}

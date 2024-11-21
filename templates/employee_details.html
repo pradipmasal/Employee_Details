@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block title %}Employee Details {% endblock title%}
+
+{% block content %}
+<div class="card mx-auto" style="width:400px">
+    <img class="card-img-top" src="{{ emp.photo.url }}" alt="Employee Photo">
+    <div class="card-body">
+      <h4 class="card-title">{{ emp.first_name}} {{ emp.last_name}}</h4>
+      <p class="card-text">{{ emp.designation }}</p>
+      <p class="card-text"><h5>About me:</h5>{{ emp.about_me }}</p>
+      <p class="card-text">{{ emp.email_id }}</p>
+      <p class="card-text">{{ emp.phone_number }}</p>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to home</a>
+  </div>
+{% endblock content %}
